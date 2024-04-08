@@ -8,7 +8,7 @@ import Header from './components/Header'
 import Settings from './pages/Settings'
 import Home from './pages/Home'
 import Profile from './pages/Profile'
-import ResetPassword from './ResetPassword'
+import ResetPassword from './components/ResetPassword'
 
 function App() {
   const [user, setUser] = useState(null)

@@ -1,6 +1,7 @@
 import React, { useEffect, useState } from 'react'
 import { database } from '../firebaseInitialize'
 import { get, ref, update, remove} from 'firebase/database'
+import '../styles/likebutton.css'
 
 const LikeButton = ({ userId, tweetId, currentUserId}) => {
     const [likeStatus, setLikeStatus] = useState(false)
@@ -53,8 +54,8 @@ const LikeButton = ({ userId, tweetId, currentUserId}) => {
 
 
   return (
-    likeStatus ? <button onClick={handleUnlike}>Unlike</button> :
-    <button onClick={handleLike}>Like</button>
+    likeStatus ? <button className='unlike-btn' onClick={handleUnlike}>Unlike</button> :
+    <button className='like-btn' onClick={handleLike}>Like</button>
   )
 }
 

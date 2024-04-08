@@ -4,6 +4,7 @@ import { off, onValue, ref } from 'firebase/database'
 import { auth, database } from '../firebaseInitialize'
 import FollowButton from './FollowButton'
 import { Link } from 'react-router-dom'
+import '../styles/miniusercard.css'
 
 const MiniUserCard = ({userId}) => {
     const [displayName, setDisplayName] = useState('')

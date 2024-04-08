@@ -1,4 +1,8 @@
 main {
+  color: white;
+  background-color: var(--regular);
   display: flex;
   flex-direction: column;
+  min-height: 100vh;
+  gap: 40px;
 }

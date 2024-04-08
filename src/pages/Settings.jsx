@@ -3,6 +3,7 @@ import { ref, onValue, update } from 'firebase/database'
 import { database, storage } from '../firebaseInitialize'
 import { useNavigate } from 'react-router-dom'
 import { ref as fbStorageRef, uploadBytes } from 'firebase/storage'
+import '../styles/settings.css'
 
 const Settings = ({ user }) => {
   const [displayName, setDisplayName] = useState('')
@@ -73,12 +74,12 @@ const Settings = ({ user }) => {
             <label htmlFor="display-name-input" required>Display Name:</label>
             <input id='display-name-input' type='text' maxLength={18} value={displayName} onChange={(e) => setDisplayName(e.target.value)}/>
             <p className='instruction'>Display name can be a maximum of 18 characters.</p>
-            <label htmlFor="bio-input">Bio:</label>
-            <input className='bio-input' id='bio-input' type='text' size='150' value={bio} onChange={(e) => setBio(e.target.value)}/>
             <label htmlFor="social-media-link-input">Website Name:</label>
             <input id='social-media-name-input' type='text' value={websiteName} onChange={(e) => setWebsiteName(e.target.value)}/>
             <label htmlFor="social-media-link-input">Website Link:</label>
             <input id='social-media-link-input' type='text' value={websiteLink} onChange={(e) => setWebsiteLink(e.target.value)}/>
+            <label htmlFor="bio-input">Bio:</label>
+            <textarea className='bio-input' id='bio-input' type='text' rows={5} cols={30} value={bio} onChange={(e) => setBio(e.target.value)}/>
             <button type='submit'>Submit</button>
         </form> 
     </section>

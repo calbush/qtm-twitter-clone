@@ -3,6 +3,7 @@ import { auth } from '../firebaseInitialize'
 import { useState, useEffect } from 'react' 
 import { signInWithEmailAndPassword } from 'firebase/auth'
 import { Link, useNavigate } from 'react-router-dom'
+import '../styles/signin.css'
 
 const SignIn = () => { 
     const [email, setEmail] = useState('')
@@ -32,12 +33,11 @@ const SignIn = () => {
     }, [user, navigate])
     
   return (
-    <section className='signIn-container'>
+    <section className='signin-container'>
       <div className='signup-header'>
         <h1 className="welcome">Welcome to Twitter</h1>
-        <p className='flavor'>sign in here:</p>
       </div>
-      <form className='signIn-form' onSubmit={(e) => handleSignIn(e)}>
+      <form className='signin-form' onSubmit={(e) => handleSignIn(e)}>
         <ul>
           <li className='signin-form-li-element'>
             <label htmlFor='email-signin'>Email:</label>
@@ -48,7 +48,7 @@ const SignIn = () => {
             <input type='password' name='password' id='password-signin' autoComplete='password' onChange={(e) => setPassword(e.target.value)} required></input>
           </li>
         </ul>
-        <button type='submit'>Log in</button>
+        <button className='login-btn' type='submit'>Log in</button>
       </form>
       <div className='navigation'>
         <div className='signin-link'>

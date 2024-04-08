@@ -1,0 +1,21 @@
+.recommended-profiles-container {
+    max-width: 320px;
+    border: 1px solid white;
+    border-radius: 8px;
+    padding: 10px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 10px;
+    background-color: var(--regular);
+}
+
+.recommended-profiles-container > ul {
+    display: flex;
+    flex-direction: column;
+    gap: 4px;
+}
+
+.recommended-profiles-container > h2 {
+    font-size: 20px;
+}

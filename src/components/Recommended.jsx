@@ -1,10 +1,11 @@
 import React from 'react'
 import MiniUserCard from './MiniUserCard'
+import '../styles/recommended.css'
 
 const Recommended = () => {
   return (
     <div className='recommended-profiles-container'>
-        <h2>Try following these user: </h2>
+        <h2>Try following these users: </h2>
         <ul>
                 <li>
                         <MiniUserCard userId={'PFS0g4WiPOMdnsWyaavnL7i1UZz2'}/>

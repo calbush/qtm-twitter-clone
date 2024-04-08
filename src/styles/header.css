@@ -1,6 +1,6 @@
 .header-container {
     background-color: #031424;
-    padding: 10px 20px 10px 20px;
+    padding: 10px;
 }
 
 .header-ul {
@@ -9,9 +9,20 @@
 }
 
 .nav-li {
+    grid-column: 1 / span 1;
     display: flex;
     align-items: center;
-    justify-content: flex-start;
+}
+
+.links {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 8px;
+}
+
+.links > a > img {
+    height: 32px;
 }
 
 .logo {
@@ -19,11 +30,12 @@
 }
 
 .logo-container {
-    align-items: center;
-    justify-content: center;
+    grid-column: 2 / span 1;
+    margin: auto;
 }
 
 .logout-container {
+    grid-column: 3 / span 1;
     align-items: center;
     justify-content: flex-end;
 }

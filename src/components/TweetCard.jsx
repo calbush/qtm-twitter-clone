@@ -7,6 +7,7 @@ import DeleteButton from './DeleteButton'
 import LikesCounter from './LikesCounter'
 import LikeButton from './LikeButton'
 import { Link } from 'react-router-dom'
+import '../styles/tweetcard.css'
 
 const TweetCard = ({tweetId, userId}) => {
     const [tweetContent, setTweetContent] = useState('')
@@ -62,12 +63,12 @@ if (tweetExistence && !isEditing){
                 </Link>
                 {currentUserId == userId && 
                 <div className='tweet-controls'>
-                    <button onClick={() => updateEditState(true)}>Edit Tweet</button>
+                    <button className='edit-btn' onClick={() => updateEditState(true)}>Edit</button>
                     <DeleteButton tweetId={tweetId} userId={userId} currentUserId={currentUserId} setTweetExistence={updateTweetExistence}/>
                 </div>
                 }           
             </div>
-            <div>
+            <div className='content-timestamp'>
                 <p className='tweet-content'>{tweetContent}</p>
                 <p className='tweet-timestamp'>{timestamp}</p>
             </div>
@@ -79,7 +80,7 @@ if (tweetExistence && !isEditing){
     )
 } else if(tweetExistence && isEditing){
     return <EditCard tweetContent={tweetContent} userId={userId} displayName={userDisplayName} tweetId={tweetId} updateEditState={updateEditState}/>
-} else return <h1>Not working</h1>
+} else return <h1>Couldn't locate tweet</h1>
 }
 
 export default TweetCard

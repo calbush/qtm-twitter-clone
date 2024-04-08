@@ -1,6 +1,7 @@
 import React, { useState } from 'react'
 import { database } from '../firebaseInitialize'
 import { ref, update, serverTimestamp, push, get } from 'firebase/database'
+import '../styles/createtweet.css'
 
 const CreateTweet = ({ userId }) => {
     const [tweetContent, setTweetContent] = useState('')
@@ -43,12 +44,16 @@ const CreateTweet = ({ userId }) => {
             console.error(error)
           }
         }
+        else alert('Tweet Must be between 1 and 200 characters')
         setTweetContent('')
     }
 
   return (
-    <form onSubmit={handleSubmit}>
-      <input type="text" size={200} onChange={(e) => setTweetContent(e.target.value)}/>
+    <form className='create-tweet-form' onSubmit={handleSubmit}>
+      <div className="create-tweet-header">
+        <h2>Create a tweet:</h2>
+      </div>
+      <textarea rows={5} cols={35} value={tweetContent} onChange={(e) => setTweetContent(e.target.value)}/>
       <p className='instruction'>{200 - tweetContent.length} characters remaining.</p>
       <button type='submit'>Submit Tweet</button>
     </form>

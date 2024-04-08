@@ -1,0 +1,23 @@
+.home-page {
+    display: flex;
+    flex-direction: column-reverse;
+    justify-content: center;
+    align-items: center;
+    gap: 20px;
+}
+
+@media screen and (min-width: 768px) {
+    .home-page {
+        display: grid;
+        margin: auto;
+        grid-template-columns: 1fr 3fr;
+        background-color: var(--darkest);
+        border: 1px solid white;
+        border-radius: 8px;
+        padding: 30px;
+    }
+
+    .home-page > .recommended-profiles-container {
+        grid-column: 1 / span 1;
+    }
+}

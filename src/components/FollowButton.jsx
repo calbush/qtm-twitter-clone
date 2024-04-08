@@ -1,6 +1,7 @@
 import React, { useEffect, useState } from 'react'
 import { ref, get, update, remove } from 'firebase/database'
 import { database } from '../firebaseInitialize'
+import '../styles/followbutton.css'
 
 const FollowButton = ( { userId, currentUserId }) => {
     const [followStatus, setFollowStatus] = useState(false)
@@ -55,8 +56,8 @@ const FollowButton = ( { userId, currentUserId }) => {
     }
 
     return (
-        followStatus ? <button onClick={handleUnfollow}>Unfollow</button> :
-        <button onClick={handleFollow}>Follow</button>
+        followStatus ? <button className='unfollow-btn' onClick={handleUnfollow}>Unfollow</button> :
+        <button className='follow-btn' onClick={handleFollow}>Follow</button>
     )
 }
 export default FollowButton

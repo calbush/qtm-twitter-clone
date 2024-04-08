@@ -1,0 +1,26 @@
+.like-btn, .unlike-btn {
+    width: 75px;
+    padding: 8px;
+    border-radius: 5px;
+    border: 1px solid black;
+}
+
+.like-btn:hover, .unlike-btn:hover {
+    cursor: pointer;
+}
+
+.like-btn:hover {
+    background-color: var(--highlights);
+}
+
+.unlike-btn:hover {
+    background-color: var(--accent);
+}
+
+.like-btn {
+    background-color: var(--accent);
+}
+
+.unlike-btn {
+    background-color: var(--highlights);
+}

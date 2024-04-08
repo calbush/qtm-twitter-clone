@@ -43,8 +43,8 @@ table {
 }
 
 * {
-	color: red;
-	outline: 1px solid orange;
+	font-family: 'Ubuntu Regular';
+	box-sizing: border-box;
 }
 
 .instruction {
@@ -57,4 +57,23 @@ table {
 	width: 150px;
 	height: 150px;
 	border-radius: 50%;
+	border: 2px solid white;
 }
+
+a {
+	color: inherit;
+	text-decoration: inherit;
+  }
+
+  @font-face {
+	font-family: 'Ubuntu Regular';
+	src: url('/src/assets/fonts/Ubuntu-Regular.ttf') format('truetype');
+  }
+  
+  :root {
+	--main-font: 'Ubuntu Regular', Arial, sans-serif;
+	--accent: #CF6766;
+	--regular: #30415D;
+	--darkest: #031424;
+	--highlights: #8EAE8D;
+  }

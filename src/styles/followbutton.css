@@ -1,0 +1,24 @@
+.follow-btn, .unfollow-btn {
+    width: 75px;
+    padding: 8px;
+    border-radius: 5px;
+    border: 1px solid black;
+}
+
+.follow-btn:hover {
+    cursor: pointer;
+    background-color: var(--accent);
+}
+
+.unfollow-btn {
+    background-color: var(--accent);
+}
+
+.follow-btn {
+    background-color: var(--highlights)
+}
+
+.unfollow-btn:hover {
+    background-color: var(--highlights);
+    cursor: pointer;
+}

@@ -2,6 +2,7 @@ import React, { useState } from 'react'
 import ProfilePicture from './ProfilePicture'
 import { ref, update } from 'firebase/database'
 import { database } from '../firebaseInitialize'
+import '../styles/editcard.css'
 
 const EditCard = ({ tweetContent, userId, displayName, tweetId, updateEditState }) => {
     const [tweetText, setTweetText] = useState(tweetContent)
@@ -35,13 +36,15 @@ const EditCard = ({ tweetContent, userId, displayName, tweetId, updateEditState 
   return (
     <div className="edit-card">
         <form onSubmit={handleEditSubmit} className="edit-card-form">
-            <div>
+            <div className='edit-card-form-header'>
               <ProfilePicture userId={userId}/>
               <p>{displayName}</p>
             </div>
-            <input type='text' size={200} value={tweetText} onChange={(e) => setTweetText(e.target.value)}/>
-            <button type='submit'>Submit</button>
-            <button onClick={handleEditCancel}>Cancel</button>
+            <textarea rows={5} cols={35} type='text' size={200} value={tweetText} onChange={(e) => setTweetText(e.target.value)}/>
+            <div className="controls">
+                <button type='submit'>Submit</button>
+                <button onClick={handleEditCancel}>Cancel</button>
+            </div>
         </form>
         <p className='error-message'>{errorMessage}</p>
     </div>

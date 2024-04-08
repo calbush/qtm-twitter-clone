@@ -1,6 +1,7 @@
 import { ref, remove } from 'firebase/database'
 import React from 'react'
 import { database } from '../firebaseInitialize'
+import '../styles/deletebutton.css'
 
 const DeleteButton = ({ tweetId, userId, currentUserId, setTweetExistence}) => {
 
@@ -16,7 +17,7 @@ const DeleteButton = ({ tweetId, userId, currentUserId, setTweetExistence}) => {
     }
 
   return (
-    <button onClick={handleDelete}>Delete Tweet</button>
+    <button className='delete-btn' onClick={handleDelete}>Delete</button>
   )
 }
 

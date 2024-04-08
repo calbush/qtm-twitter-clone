@@ -1,0 +1,14 @@
+.create-tweet-form {
+    background-color: var(--darkest);
+    padding: 30px;
+    max-width: 350px;
+    border: 1px solid white;
+    border-radius: 8px;
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+}
+
+.create-tweet-form > button {
+    cursor: pointer;
+}

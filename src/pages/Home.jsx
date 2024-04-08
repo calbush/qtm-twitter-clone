@@ -3,6 +3,7 @@ import React, { useEffect, useState } from 'react'
 import { auth, database } from '../firebaseInitialize'
 import Feed from '../components/Feed'
 import Recommended from '../components/Recommended'
+import '../styles/home.css'
 
 const Home = () => {
     const [followedUsers, setFollowedUsers] = useState([])

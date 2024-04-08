@@ -1,6 +1,7 @@
 import { off, onValue, ref } from 'firebase/database'
 import React, { useEffect, useState } from 'react'
 import { database } from '../firebaseInitialize'
+import '../styles/likescounter.css'
 
 const LikesCounter = ({tweetId, userId}) => {
     const [likesCounter, setLikesCounter] = useState(0)

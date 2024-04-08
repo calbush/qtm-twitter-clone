@@ -5,6 +5,7 @@ import Feed from '../components/Feed'
 import CreateTweet from '../components/CreateTweet'
 import { ref, off, onValue } from 'firebase/database'
 import ProfileCard from '../components/ProfileCard'
+import '../styles/profile.css'
 
 const Profile = () => {
     const [tweetsToRender, setTweetsToRender] = useState([])
@@ -31,8 +32,8 @@ const Profile = () => {
   return (
     <div className='profile'>
         <ProfileCard userId={userId}/>
-        <Feed tweets={tweetsToRender}/>
         {currentUserId == userId && <CreateTweet userId={userId}/>}
+        <Feed tweets={tweetsToRender}/>
     </div>
   )
 }

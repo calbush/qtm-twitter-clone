@@ -1,5 +1,6 @@
 import React, { useState } from 'react'
 import TweetCard from './TweetCard'
+import '../styles/feed.css'
 
 const Feed = ({tweets}) => {
     const [currentPage, setCurrentPage] = useState(1)
@@ -19,9 +20,8 @@ const Feed = ({tweets}) => {
 
   return (
     <div className='feed'>
-        <ul>
             {tweets.length > 0 ?
-            <ul>
+            <ul className='feed-tweets'>
                 {currentTweets.map((tweet, index)=> {
                     return(
                         <li key={index}>
@@ -34,10 +34,11 @@ const Feed = ({tweets}) => {
                     <p>No Tweets available</p>
                 </div>
             }
-        </ul>
-        <div>
-            <button onClick={prevPage}>Previous page</button>
-            <button onClick={nextPage}>Next page</button>
+        <div  className="pagination-controls">
+            {tweets.length > 6 && <div>
+                <button onClick={prevPage}>Previous page</button>
+                <button onClick={nextPage}>Next page</button>
+            </div>}
         </div>
     </div>
   )

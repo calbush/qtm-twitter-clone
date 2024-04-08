@@ -1,0 +1,4 @@
+.likes-counter {
+    display: flex;
+    gap: 3px;
+}

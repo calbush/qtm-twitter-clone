@@ -3,6 +3,7 @@ import React, { useEffect, useState } from 'react'
 import { auth, database } from '../firebaseInitialize'
 import FollowButton from './FollowButton'
 import ProfilePicture from './ProfilePicture'
+import '../styles/profilecard.css'
 
 const ProfileCard = ({userId}) => {
     const [userDisplayName, setUserDisplayName] = useState('')

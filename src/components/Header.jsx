@@ -1,6 +1,9 @@
 import React from 'react'
 import origami from '../assets/images/origami-100px.png'
 import '../styles/header.css'
+import settingsIcon from '../assets/images/settings.png'
+import homeIcon from '../assets/images/home.png'
+import profileIcon from '../assets/images/profile.png'
 import { Link } from 'react-router-dom'
 
 const Header = ({ user, handleLogout }) => {
@@ -9,10 +12,16 @@ const Header = ({ user, handleLogout }) => {
         <ul className='header-ul'>
             <nav className='nav-li'>
                 {user && 
-                <div>
-                    <Link to={'/home'}>Home</Link>
-                    <Link to={`/profile/${user.uid}`}>Profile</Link>
-                    <Link to={'/settings'}>Settings</Link>
+                <div className='links'>
+                    <Link to={'/home'}>
+                        <img src={homeIcon} alt="home icon" />
+                    </Link>
+                    <Link to={`/profile/${user.uid}`}>
+                        <img src={profileIcon} alt="profile icon" />
+                    </Link>
+                    <Link to={'/settings'}>
+                        <img src={settingsIcon} alt="settings icon" />
+                    </Link>
                 </div>
                 }
             </nav>

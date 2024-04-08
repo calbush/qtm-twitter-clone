@@ -2,6 +2,7 @@ import React, { useState } from 'react'
 import { createUserWithEmailAndPassword } from 'firebase/auth'
 import { auth } from '../firebaseInitialize'
 import { Link } from 'react-router-dom'
+import '../styles/signup.css'
 
 // handle potential errors before we send data to the backend
 
@@ -11,7 +12,6 @@ const SignUp = () => {
     const [password, setPassword] = useState('')
     const [passwordVerification, setPasswordVerification] = useState('')
     const [errorMessage, setErrorMessage] = useState([])
-    const [errorFromFirebase, setErrorFromFirebase] = useState('')
 
     const handleSubmit = async (e) => {
         e.preventDefault()
@@ -48,7 +48,6 @@ const SignUp = () => {
     <div className='signup-container'>
       <div className="signup-header">
         <h1 className='welcome'>Welcome to Twitter</h1>
-        <p className='flavor'>sign up here:</p>
       </div>
       <form className='signup-form' onSubmit={(e) => handleSubmit(e)}>
       <ul className='form-li'>
@@ -64,8 +63,8 @@ const SignUp = () => {
           <label htmlFor='password-verification'>Re-enter your password:</label>
           <input type='password' name='password-verification' id='password-verification' onChange={(e) => setPasswordVerification(e.target.value)} required></input>
         </li>
-        <li className='form-li-element'>
-          <button type='submit'>Submit</button>
+        <li className='signup-btn-container'>
+          <button className='signup-btn' type='submit'>Submit</button>
         </li>
       </ul>
       </form>

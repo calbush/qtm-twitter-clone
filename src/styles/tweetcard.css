@@ -1,0 +1,88 @@
+.tweet-card {
+    background-color: var(--darkest);
+    border: 1px solid white;
+    border-radius: 8px;
+    padding: 8px;
+    display: flex;
+    flex-direction: column;
+    gap: 12px;
+    max-width: 350px;
+}
+
+.tweet-header > .profile-picture {
+    height: 80px;
+    width: 80px;
+}
+
+.tweet-header > a {
+    grid-column: 2 / span 4;
+}
+
+.tweet-display-name {
+    font-size: 20px;
+}
+
+.tweet-header {
+    display: grid;
+    grid-template-columns: repeat(8, 1fr);
+    align-items: center;
+    column-gap: 6px;
+}
+
+.tweet-controls {
+    grid-column: 6 / span 3;
+    display: flex;
+    gap: 2px;
+    align-items: center;
+    justify-content: center;
+}
+
+.edit-btn {
+    background-color: var(--accent);
+    width: 80px;
+    padding: 5px;
+    border-radius: 5px;
+    border: 1px solid black;
+}
+
+.edit-btn:hover {
+    cursor: pointer;
+    background-color: var(--highlights);
+}
+
+.tweet-header > .delete-btn {
+    height: 30px;
+}
+
+.content-timestamp {
+    display: flex;
+    flex-direction: column;
+    gap: 4px;
+    border: 1px solid var(--regular);
+    border-radius: 8px;
+    padding: 15px 15px 5px 15px;
+}
+
+.tweet-content{
+    padding-left: 20px;
+    font-size: 18px;
+}
+
+.tweet-timestamp {
+    align-self: flex-end;
+}
+
+.tweet-footer {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+}
+
+.tweet-footer > * {
+    margin: auto;
+}
+
+@media screen and (min-width: 768px){
+    .tweet-card {
+        max-width: 600px;
+    }
+}
