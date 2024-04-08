@@ -1,29 +1,29 @@
 import './App.css'
 import { Route, Routes, useNavigate } from 'react-router-dom'
-import { auth, storage } from './firebaseInitialize'
-import SignIn from './SignIn'
-import SignUp from './SignUp'
+import { auth } from './firebaseInitialize'
+import SignIn from './pages/SignIn'
+import SignUp from './pages/SignUp'
 import { useEffect, useState } from 'react'
-import Header from './Header'
-import Settings from './Settings'
-import Profile from './Profile'
-import { getDownloadURL, ref } from 'firebase/storage'
-import defaultProfilePic from './assets/images/default.png' 
+import Header from './components/Header'
+import Settings from './pages/Settings'
+import Home from './pages/Home'
+import Profile from './pages/Profile'
+import ResetPassword from './ResetPassword'
 
 function App() {
   const [user, setUser] = useState(null)
   const navigate = useNavigate()
 
-  //We need to listen for change in users authentication status AND redirect the user to sign in/sign up if they're not logged in
   useEffect(() => {
     const unsubscribe = auth.onAuthStateChanged((user) => {
       setUser(user)
-      if (!user && window.location.pathname !== '/sign-up'){
+      const validPaths = ['/sign-up', '/reset-password']
+      if (!user && !validPaths.includes(window.location.pathname)){
         navigate('/')
       }
     })
     return () => unsubscribe()
-  }, [navigate])
+  }, [user, navigate])
 
   useEffect(() => {
     if (user && window.location.pathname === '/sign-up') {
@@ -31,35 +31,20 @@ function App() {
     }
   }, [user, navigate]);
 
-  useEffect
-
   const handleLogout = () => {
     auth.signOut()
   }
-
-  const getProfilePicture = (userID) => {
-    const pathReference = ref(storage, `profile-pictures/${userID}`);
-    return new Promise((resolve, reject) => {
-        getDownloadURL(pathReference)
-            .then((url) => {
-                resolve(url);
-            })
-            .catch((error) => {
-                console.log(error);
-                // Reject with the default profile picture
-                reject(defaultProfilePic);
-            });
-    });
-};
 
   return (
     <main>
       <Header user={user} handleLogout={handleLogout}></Header>
       <Routes>
-      <Route path='/' element={user ? <h1>success!</h1> : <SignIn />} />
-      <Route path='/sign-up' element={<SignUp/>}></Route>
-      {user && <Route path='/settings'element={<Settings user={user}/>}></Route>}
-      {user && <Route path='/profile/:id'element={<Profile user={user} getProfilePicture={getProfilePicture}/>}></Route>}
+      <Route path='/' element={<SignIn/>}/>
+      <Route path='/sign-up' element={<SignUp/>}/>
+      <Route path='/reset-password' element={<ResetPassword/>}/>
+      {user && <Route path='/settings'element={<Settings user={user}/>}/>}
+      {user && <Route path='/profile/:id' element={<Profile/>}/>}
+      {user && <Route path='/home' element={<Home/>}/> }
       </Routes>
     </main>
   )
